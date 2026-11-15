@@ -1,0 +1,13 @@
+digraph G {
+ graph [rankdir=LR, bgcolor=white, pad=0.1, nodesep=0.25, ranksep=0.45];
+ node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, color="#5a7081", fillcolor="#eef3f6", margin="0.18,0.15"];
+ edge [fontname="Arial", fontsize=9, color="#566c7c", arrowsize=0.6];
+ a [label="Iniciar\nsesión"];
+ b [label="Validar\ncredenciales",shape=diamond, fillcolor="#fff4e5"];
+ c [label="Elegir usuario\ny material"];
+ d [label="Validar usuario\ny disponibilidad",shape=diamond, fillcolor="#fff4e5"];
+ e [label="Guardar préstamo\ny descontar stock", fillcolor="#e2f1ec"];
+ f [label="Registrar devolución\ny devolver stock",fillcolor="#e2f1ec"];
+ g [label="Consultar\nhistorial"];
+ a -> b -> c -> d -> e -> f -> g;
+}

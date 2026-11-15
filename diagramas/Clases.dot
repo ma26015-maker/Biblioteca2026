@@ -1,0 +1,19 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.25, nodesep=0.55, ranksep=0.7];
+ node [shape=record, fontname="Arial", fontsize=11, color="#526678", style="rounded,filled", fillcolor="#eef3f6"];
+ edge [fontname="Arial", fontsize=9, arrowsize=0.7, color="#566c7c"];
+ Material [label="{Material (abstracta)|codigo: String\ltitulo: String\lanio: int\leditorial: String\lcantidad: int\l|+ getTipo(): String\l+ getCodigo(): String\l+ getTitulo(): String\l}"];
+ Libro [label="{Libro|autor: String\lisbn: String\l|+ getTipo(): String\l}"];
+ Revista [label="{Revista|edicion: String\lvolumen: String\l|+ getTipo(): String\l}"];
+ Usuario [label="{Usuario|codigo: String\lnombre: String\ldocumento: String\lcontacto: String\lactivo: boolean\l}"];
+ Prestamo [label="{Prestamo|codigo: String\lusuario: String\lmaterial: String\lfecha: LocalDate\lprevista: LocalDate\ldevolucion: LocalDate\lestado: String\l}"];
+ Servicio [label="{BibliotecaServicio|materiales: MongoCollection\lusuarios: MongoCollection\lprestamos: MongoCollection\l|+ guardarMaterial()\l+ guardarUsuario()\l+ registrarPrestamo()\l+ devolver()\l+ verificarIntegridad()\l}", fillcolor="#e2f1ec"];
+ Ventana [label="{Ventana|servicio: BibliotecaServicio\ltablas y formularios Swing\l|+ mostrarLogin()\l+ actualizarTodo()\l}",fillcolor="#fff4e5"];
+ Libro -> Material [arrowhead=empty]; Revista -> Material [arrowhead=empty];
+ Prestamo -> Material [style=dashed,label="codigo material"];
+ Prestamo -> Usuario [style=dashed,label="codigo usuario"];
+ Ventana -> Servicio [label="utiliza"];
+ Servicio -> Prestamo [label="administra"];
+ Servicio -> Usuario [label="administra"];
+ Servicio -> Material [label="administra"];
+}

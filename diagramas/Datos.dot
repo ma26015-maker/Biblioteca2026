@@ -1,0 +1,11 @@
+digraph G {
+ graph [rankdir=LR, bgcolor=white, pad=0.2, nodesep=0.5];
+ node [shape=record, style="rounded,filled", color="#627b89", fillcolor="#eef3f6", fontname="Arial", fontsize=12];
+ edge [color="#566c7c", fontname="Arial", fontsize=10];
+ Materiales [label="{materiales|_id (código)\ltitulo, tipo, anio, editorial\ltotal, disponibles\lautor, isbn, edicion, volumen\l}"];
+ Usuarios [label="{usuarios|_id (código)\lnombre, documento, contacto\lactivo\l}"];
+ Prestamos [label="{prestamos|_id (código)\lusuario, material\lfecha, prevista\ldevolucion, estado\l}", fillcolor="#e2f1ec"];
+ Accesos [label="{accesos|_id (usuario de acceso)\lsal, hash\l}"];
+ Prestamos -> Materiales [label="material → _id"];
+ Prestamos -> Usuarios [label="usuario → _id"];
+}
